@@ -1,0 +1,36 @@
+<section id="casa" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <div class="card_book">
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="{{ casa.imagen_presentacion }}"
+              alt="{{ casa.nombre }}"
+            />
+            <div class="card-body text-center">
+              <h4 class="card-title">
+                {{ casa.nombre }}
+              </h4>
+              <p class="card-text">
+                {{ casa.descripcion }}
+                <br />
+                {{ casa.domicilio }}
+              </p>
+              <div class="container-precio-idioma">
+                <p class="badge badge-dark">
+                  {{ casa.codigo }}
+                </p>
+                <p class="badge badge-info">
+                  {{ casa.lugar }}
+                </p>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

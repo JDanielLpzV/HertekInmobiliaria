@@ -1,0 +1,13 @@
+form {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+button {
+  margin-right: 30px;
+}
+.btn-google {
+  background-color: #dd4b39;
+  color: aliceblue;
+  width: 100%;
+}

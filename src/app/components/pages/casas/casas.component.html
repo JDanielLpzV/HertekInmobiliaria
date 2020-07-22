@@ -1,0 +1,56 @@
+<div class="jumbotron text-center">
+  <h1>Casas en venta</h1>
+  <p class="eslogan">
+    Lugar donde encontrarás opciones que se convertiran en tu proximo hogar.
+  </p>
+</div>
+
+<section id="casas" class="mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let casa of casas">
+        <div class="card_book">
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="{{ casa.imagen_presentacion }}"
+              alt="{{ casa.nombre }}"
+            />
+            <div class="card-img-overlay">
+              <p class="badge badge-warning">
+                {{ casa.codigo }}
+              </p>
+            </div>
+            <div class="card-body text-center">
+              <h4 class="card-header">
+                {{ casa.nombre }}
+              </h4>
+              <p class="card-text">
+                {{ casa.descripcion.substring(0, 60) }}...
+              </p>
+              <div class="container-precio-idioma">
+                <p class="badge badge-info">
+                  {{ casa.lugar }}
+                </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <p class="badge badge-success">{{ casa.cuartos }} Cuartos</p>
+                  <p class="badge badge-success">{{ casa.banos }} Baños</p>
+                  <p class="badge badge-success">{{ casa.autos }} Espacios</p>
+                </li>
+              </ul>
+              <a
+                href=""
+                class="btn btn-block btn-warning"
+                target="_self"
+                routerLink="/casa/{{ casa.Id }}"
+                >Detalles</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

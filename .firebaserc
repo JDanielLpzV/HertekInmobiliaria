@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "localitos-db906": {
+      "hosting": {
+        "cliente": [
+          "localitos-db906"
+        ]
+      }
+    }
+  }
+}

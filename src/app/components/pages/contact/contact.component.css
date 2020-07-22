@@ -1,0 +1,15 @@
+.eslogan {
+  font-size: 2.5em;
+  color: #f2f2f2;
+}
+h1 {
+  font-size: 8.2em;
+  color: #f2f2f2;
+  font-weight: 600;
+}
+.jumbotron {
+  background-color: #024059;
+  color: #fff;
+  padding: 100px 25px;
+  font-family: Montserrat, sans-serif;
+}

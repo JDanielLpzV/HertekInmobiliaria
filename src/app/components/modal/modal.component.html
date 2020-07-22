@@ -1,0 +1,198 @@
+<div
+  class="modal fade"
+  id="modalCasa"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ !this.dataApi.selectedCasa.Id ? "Nueva Casa" : "Modificar Casa" }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form
+          name="formCasa"
+          #formCasa="ngForm"
+          (ngSubmit)="onSaveCasa(formCasa)"
+        >
+          <input
+            type="hidden"
+            name="Id"
+            [(ngModel)]="this.dataApi.selectedCasa.Id"
+          />
+          <!-- <input type="hidden" name="userUid" [value]="userUid" /> -->
+          <input
+            type="hidden"
+            name="correo_registro"
+            [value]="correo_registro"
+          />
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="nombre"
+              [(ngModel)]="this.dataApi.selectedCasa.nombre"
+            />
+          </div>
+          <div class="form-group">
+            <label for="codigo" class="col-form-label"
+              >Codigo del producto:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="codigo"
+              [(ngModel)]="this.dataApi.selectedCasa.codigo"
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="lugar" class="col-form-label"
+                >Municipio y estado:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="lugar"
+                [(ngModel)]="this.dataApi.selectedCasa.lugar"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="domicilio" class="col-form-label">Domicilio:</label>
+              <input
+                type="text"
+                name="domicilio"
+                class="form-control"
+                [(ngModel)]="this.dataApi.selectedCasa.domicilio"
+              />
+            </div>
+          </div>
+          <!--]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]-->
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="cuartos">No. de cuartos:</label>
+              <input
+                type="number"
+                class="form-control"
+                name="cuartos"
+                [(ngModel)]="this.dataApi.selectedCasa.cuartos"
+              />
+            </div>
+            <div class="form-group col-md-8">
+              <label for="cuartos_detalles">Información de los cuartos:</label>
+              <textarea
+                class="form-control"
+                name="cuartos_detalles"
+                [(ngModel)]="this.dataApi.selectedCasa.cuartos_detalles"
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="banos">No. de baños:</label>
+              <input
+                type="number"
+                class="form-control"
+                name="banos"
+                [(ngModel)]="this.dataApi.selectedCasa.banos"
+              />
+            </div>
+            <div class="form-group col-md-8">
+              <label for="banos_detalles">Información de los baños:</label>
+              <textarea
+                class="form-control"
+                name="banos_detalles"
+                [(ngModel)]="this.dataApi.selectedCasa.banos_detalles"
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="autos">No. espacios de autos:</label>
+              <input
+                type="number"
+                class="form-control"
+                min="0"
+                max="100"
+                name="autos"
+                [(ngModel)]="this.dataApi.selectedCasa.autos"
+              />
+            </div>
+            <div class="form-group col-md-8">
+              <label for="autos_detalles"
+                >Información de los espacios para vehiculos:</label
+              >
+              <textarea
+                class="form-control"
+                name="autos_detalles"
+                [(ngModel)]="this.dataApi.selectedCasa.autos_detalles"
+              ></textarea>
+            </div>
+          </div>
+          <!--]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]-->
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="precio">Precio</label>
+              <input
+                type="number"
+                name="precio"
+                class="form-control"
+                min="0"
+                max="999999999"
+                placeholder="Precio"
+                [(ngModel)]="this.dataApi.selectedCasa.precio"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="imagen_presentacion">Enlace de imagen:</label>
+              <input
+                type="text"
+                name="imagen_presentacion"
+                class="form-control"
+                placeholder="(https://www.dominio.imagen.jpg)"
+                [(ngModel)]="this.dataApi.selectedCasa.imagen_presentacion"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="descripcion" class="col-form-label">Descripción:</label>
+            <textarea
+              class="form-control"
+              name="descripcion"
+              [(ngModel)]="this.dataApi.selectedCasa.descripcion"
+            ></textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              #btnClose
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Guardar Casa
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

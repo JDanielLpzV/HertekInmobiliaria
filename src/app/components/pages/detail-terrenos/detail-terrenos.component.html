@@ -1,0 +1,35 @@
+<section id="terreno" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <div class="card_book">
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="{{ terreno.imagen_presentacion }}"
+              alt="{{ terreno.nombre }}"
+            />
+            <div class="card-body text-center">
+              <h4 class="card-title">
+                {{ terreno.nombre }}
+              </h4>
+              <p class="card-text">
+                {{ terreno.descripcion }}
+                <br />
+                {{ terreno.domicilio }}
+              </p>
+              <div class="container-precio-idioma">
+                <p class="badge badge-dark">
+                  {{ terreno.codigo }}
+                </p>
+                <p class="badge badge-info">
+                  {{ terreno.lugar }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

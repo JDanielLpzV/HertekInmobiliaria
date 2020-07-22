@@ -1,0 +1,13 @@
+form {
+  margin: 50px;
+}
+button {
+  margin-right: 30px;
+}
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: fit-content;
+  background-color: mintcream;
+}

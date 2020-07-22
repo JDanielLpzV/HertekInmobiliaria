@@ -1,0 +1,51 @@
+<div class="jumbotron text-center">
+  <h1>Terrenos en venta</h1>
+  <p class="eslogan">
+    Te ofrecemos terrenos ubicados en zonas urbanizadas para empezar tu proximo
+    proyecto.
+  </p>
+</div>
+<section id="terrenos" class="mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let terreno of terrenos">
+        <div class="card_book">
+          <div class="card text-black bg-light">
+            <img
+              class="card-img-top"
+              src="{{ terreno.imagen_presentacion }}"
+              alt="{{ terreno.nombre }}"
+            />
+            <div class="card-img-overlay">
+              <p class="badge badge-warning">
+                {{ terreno.codigo }}
+              </p>
+            </div>
+            <div class="card-body text-center">
+              <h4 class="card-title">
+                {{ terreno.nombre }}
+              </h4>
+              <p class="card-text">
+                {{ terreno.descripcion }}
+                <br />
+                {{ terreno.domicilio }}
+              </p>
+              <div class="container-precio-idioma">
+                <p class="badge badge-info">
+                  {{ terreno.lugar }}
+                </p>
+              </div>
+              <a
+                href=""
+                class="btn btn-block btn-warning"
+                target="_self"
+                routerLink="/terrenos/{{ terreno.Id }}"
+                >Me interesa</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<div class="card">
+  <h1 class="display-4 text-center">Registro</h1>
+  <div class="card-body">
+    <form [formGroup]="registerForm"(ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo electronico:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="email"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >No compartiremos tu correo con nadie.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Contraseña</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"/>
+      </div>
+      <button type="submit" class="btn btn-success">Registrarse</button>
+      <a [routerLink]="['/iniciar-sesion']">¿Ya tienes cuenta?, Inicia sesión</a>
+    </form>
+    
+  </div>
+</div>

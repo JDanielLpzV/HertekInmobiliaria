@@ -1,0 +1,63 @@
+<section class="row mt-5">
+  <div class="col">
+    <button
+      class="btn btn-success float-right mb-3"
+      data-toggle="modal"
+      data-target="#modalCasa"
+    >
+      Registrar Casa
+    </button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Codigo</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Domicilio</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Precio</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let casa of casas; index as i">
+          <!-- <th scope="row">{{ i + 1 }}</th> -->
+          <th scope="row">{{ casa.codigo }}</th>
+          <td>{{ casa.nombre }}</td>
+          <td>{{ casa.domicilio }}, {{ casa.lugar }}</td>
+          <td>{{ casa.descripcion.substring(0, 30) }}</td>
+          <td>${{ casa.precio }}</td>
+          <td *ngIf="casa.correo_registro == userCorreo; else noOwner">
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modalCasa"
+              (click)="onPreUpdateCasa(casa)"
+            >
+              Modificar
+            </button>
+          </td>
+          <td *ngIf="casa.correo_registro == userCorreo; else noOwner2">
+            <button class="btn btn-danger" (click)="onDeleteCasa(casa.Id)">
+              Eliminar
+            </button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <button class="btn btn-secondary" disabled="true">
+                Modificar
+              </button>
+            </td>
+          </ng-template>
+          <ng-template #noOwner2>
+            <td>
+              <button class="btn btn-danger" disabled="true">
+                Eliminar
+              </button>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<app-modal></app-modal>
