@@ -1,0 +1,225 @@
+<section class="row mt-5">
+  <div class="col">
+    <div class="form-group">
+      <form>
+        <input
+          name="filterPost"
+          [(ngModel)]="filterPost"
+          type="text"
+          class="form-control"
+          placeholder="Buscar inmueble"
+        />
+      </form>
+    </div>
+    <button
+      class="btn btn-success float-right mb-3 agregar"
+      data-toggle="modal"
+      data-target="#modalCasa"
+    >
+      Registrar Casa
+    </button>
+    <button
+      class="btn btn-success float-right mb-3 agregar"
+      data-toggle="modal"
+      data-target="#modalTerreno"
+    >
+      Registrar Terreno
+    </button>
+    <!--  -->
+    <button
+      class="btn btn-success float-right mb-3 agregar"
+      data-toggle="modal"
+      data-target="#modalEdificio"
+    >
+      Registrar Edificio
+    </button>
+    <button
+      class="btn btn-success float-right mb-3 agregar"
+      data-toggle="modal"
+      data-target="#modalDepartamento"
+    >
+      Registrar Departamento
+    </button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Codigo</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Domicilio</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Precio</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let casa of casas | filter: filterPost; index as i">
+          <!-- <th scope="row">{{ i + 1 }}</th> -->
+          <th scope="row">{{ casa.codigo }}</th>
+          <td>{{ casa.nombre }}</td>
+          <td>{{ casa.domicilio }}, {{ casa.lugar }}</td>
+          <td>{{ casa.descripcion.substring(0, 30) }}</td>
+          <td>${{ casa.precio }}</td>
+          <td *ngIf="casa.correo_registro == userCorreo; else noOwner">
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modalCasa"
+              (click)="onPreUpdateCasa(casa)"
+            >
+              Modificar
+            </button>
+          </td>
+          <td *ngIf="casa.correo_registro == userCorreo; else noOwner2">
+            <button class="btn btn-danger" (click)="onDeleteCasa(casa.Id)">
+              Eliminar
+            </button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <button class="btn btn-secondary" disabled="true">
+                Modificar
+              </button>
+            </td>
+          </ng-template>
+          <ng-template #noOwner2>
+            <td>
+              <button class="btn btn-danger" disabled="true">
+                Eliminar
+              </button>
+            </td>
+          </ng-template>
+        </tr>
+        <tr *ngFor="let terreno of terrenos | filter: filterPost; index as i">
+          <!-- <th scope="row">{{ i + 1 }}</th> -->
+          <th scope="row">{{ terreno.codigo }}</th>
+          <td>{{ terreno.nombre }}</td>
+          <td>{{ terreno.domicilio }}, {{ terreno.lugar }}</td>
+          <td>{{ terreno.descripcion.substring(0, 30) }}...</td>
+          <td>${{ terreno.precio }}</td>
+          <td *ngIf="terreno.correo_registro == userCorreo; else noOwner">
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modalTerreno"
+              (click)="onPreUpdateTerreno(terreno)"
+            >
+              Modificar
+            </button>
+          </td>
+          <td *ngIf="terreno.correo_registro == userCorreo; else noOwner2">
+            <button
+              class="btn btn-danger"
+              (click)="onDeleteTerreno(terreno.Id)"
+            >
+              Eliminar
+            </button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <button class="btn btn-secondary" disabled="true">
+                Modificar
+              </button>
+            </td>
+          </ng-template>
+          <ng-template #noOwner2>
+            <td>
+              <button class="btn btn-danger" disabled="true">
+                Eliminar
+              </button>
+            </td>
+          </ng-template>
+        </tr>
+        <!--  -->
+        <tr *ngFor="let edificio of edificios | filter: filterPost; index as i">
+          <!-- <th scope="row">{{ i + 1 }}</th> -->
+          <th scope="row">{{ edificio.codigo }}</th>
+          <td>{{ edificio.nombre }}</td>
+          <td>{{ edificio.domicilio }}, {{ edificio.lugar }}</td>
+          <td>{{ edificio.descripcion.substring(0, 30) }}...</td>
+          <td>${{ edificio.precio }}</td>
+          <td *ngIf="edificio.correo_registro == userCorreo; else noOwner">
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modalEdificio"
+              (click)="onPreUpdateEdificio(edificio)"
+            >
+              Modificar
+            </button>
+          </td>
+          <td *ngIf="edificio.correo_registro == userCorreo; else noOwner2">
+            <button
+              class="btn btn-danger"
+              (click)="onDeleteEdificio(edificio.Id)"
+            >
+              Eliminar
+            </button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <button class="btn btn-secondary" disabled="true">
+                Modificar
+              </button>
+            </td>
+          </ng-template>
+          <ng-template #noOwner2>
+            <td>
+              <button class="btn btn-danger" disabled="true">
+                Eliminar
+              </button>
+            </td>
+          </ng-template>
+        </tr>
+        <tr
+          *ngFor="
+            let departamento of departamentos | filter: filterPost;
+            index as i
+          "
+        >
+          <!-- <th scope="row">{{ i + 1 }}</th> -->
+          <th scope="row">{{ departamento.codigo }}</th>
+          <td>{{ departamento.nombre }}</td>
+          <td>{{ departamento.domicilio }}, {{ departamento.lugar }}</td>
+          <td>{{ departamento.descripcion.substring(0, 30) }}...</td>
+          <td>${{ departamento.precio }}</td>
+          <td *ngIf="departamento.correo_registro == userCorreo; else noOwner">
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modalDepartamento"
+              (click)="onPreUpdateDepartamento(departamento)"
+            >
+              Modificar
+            </button>
+          </td>
+          <td *ngIf="departamento.correo_registro == userCorreo; else noOwner2">
+            <button
+              class="btn btn-danger"
+              (click)="onDeleteDepartamento(departamento.Id)"
+            >
+              Eliminar
+            </button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <button class="btn btn-secondary" disabled="true">
+                Modificar
+              </button>
+            </td>
+          </ng-template>
+          <ng-template #noOwner2>
+            <td>
+              <button class="btn btn-danger" disabled="true">
+                Eliminar
+              </button>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<app-modal></app-modal>
+<app-modalterrenos></app-modalterrenos>
+<app-modaledificios></app-modaledificios>
+<app-modaldepartamentos></app-modaldepartamentos>

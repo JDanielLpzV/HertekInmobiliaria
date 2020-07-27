@@ -1,11 +1,10 @@
 <div class="jumbotron text-center">
-  <h1>Terrenos</h1>
+  <h1>Edificios</h1>
   <p class="eslogan">
-    Te ofrecemos terrenos ubicados en zonas urbanizadas para empezar tu proximo
-    proyecto.
+    Lugar donde encontrarás opciones que se convertiran en tu proximo hogar.
   </p>
 </div>
-<h4 class="text-center">Filtrar Terrenos</h4>
+<h4 class="text-center">Filtrar Edificios</h4>
 <form>
   <div class="form-row">
     <div class="form-group col-md-4">
@@ -93,30 +92,6 @@
     </fieldset>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-5">
-      <label for="luz" class="col-form-label">Servicio de luz:</label>
-      <div>
-        <select class="custom-select form-control" name="luz" [(ngModel)]="luz">
-          <option value="Si">Si</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group col-md-5">
-      <label for="agua" class="col-form-label">Servicio de agua:</label>
-      <div>
-        <select
-          class="custom-select form-control"
-          name="agua"
-          [(ngModel)]="agua"
-        >
-          <option value="Si">Si</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <!-- <div class="form-row">
     <div class="form-group col-md-3">
       <label for="cuartos" class="col-form-label">Habitaciones minimos:</label>
       <input
@@ -152,76 +127,80 @@
         [(ngModel)]="autos"
       />
     </div>
-  </div> -->
+  </div>
 </form>
 
-<section id="terrenos" class="mt-4">
+<section id="edificios" class="mt-4">
   <div class="container">
     <div class="row">
       <div
         class="col-xs-12 col-sm-6 col-md-4"
         *ngFor="
-          let terreno of terrenos | filterListT: metodo:lugar:precio:luz:agua
+          let edificio of edificios
+            | filterList: metodo:lugar:cuartos:banos:autos:precio
         "
       >
         <div class="card_book">
-          <div class="card text-black bg-light">
+          <div class="card">
             <img
               class="card-img-top"
-              src="{{ terreno.imagen_presentacion }}"
-              alt="{{ terreno.nombre }}"
+              src="{{ edificio.imagen_presentacion }}"
+              alt="{{ edificio.nombre }}"
             />
             <div class="card-img-overlay">
-              <p class="badge badge-warning">
-                {{ terreno.codigo }}
+              <p class="badge badge-light">
+                {{ edificio.codigo }}
               </p>
               <p class="badge badge-info">
-                {{ terreno.lugar }}
+                {{ edificio.lugar }}
               </p>
               <p class="badge badge-danger">
-                {{ terreno.metodo }}
+                {{ edificio.metodo }}
               </p>
             </div>
             <p class="badge badge-warning">
-              Plusvalia: <strong>{{ terreno.plusvalia }}</strong>
+              Plusvalia: <strong>{{ edificio.plusvalia }}</strong>
             </p>
             <div class="card-body text-center">
-              <h4 class="card-title">
-                {{ terreno.nombre }}
+              <h4 class="card-header">
+                {{ edificio.nombre }}
               </h4>
-              <h6>Terreno de {{ terreno.area }} m<sup>2</sup></h6>
-              <h6>{{ terreno.metros }} m<sup>2</sup> construidos</h6>
+              <h6>Terreno de {{ edificio.area }} m<sup>2</sup></h6>
+              <h6>{{ edificio.metros }} m<sup>2</sup> construidos</h6>
               <p class="card-text">
-                {{ terreno.descripcion }}
-                <br />
-                {{ terreno.domicilio }}
+                {{ edificio.descripcion.substring(0, 60) }}...
               </p>
               <!-- <div class="container-precio-idioma">
-                <p class="badge badge-info">
-                  {{ terreno.lugar }}
-                </p>
-              </div> -->
+                    <p class="badge badge-info">
+                      {{ casa.lugar }}
+                    </p>
+                  </div> -->
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <h5 class="bandas">
                     <span class="badge badge-success">
-                      Agua: {{ terreno.agua }}</span
+                      {{ edificio.cuartos }} Cuartos</span
+                    >
+                  </h5>
+                  <h5 class="bandas">
+                    <span class="inf badge badge-success"
+                      >{{ edificio.banos }} Baños</span
                     >
                   </h5>
                   <h5 class="bandas">
                     <span class="inf badge badge-success">
-                      Luz electrica: {{ terreno.luz }}
+                      {{ edificio.autos }} Espacios
                     </span>
                   </h5>
                 </li>
               </ul>
-              <h4 class="card-text">{{ terreno.precio | currency }}</h4>
+              <h4 class="card-text">{{ edificio.precio | currency }}</h4>
               <a
                 href=""
                 class="btn btn-block btn-warning"
                 target="_self"
-                routerLink="/terreno/{{ terreno.Id }}"
-                >Me interesa</a
+                routerLink="/edificio/{{ edificio.Id }}"
+                ><strong>Detalles</strong></a
               >
             </div>
           </div>

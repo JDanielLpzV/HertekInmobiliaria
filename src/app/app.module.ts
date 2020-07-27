@@ -11,9 +11,6 @@ import { AboutUsComponent } from './components/pages/about-us/about-us.component
 import { MainComponent } from './components/pages/main/main.component';
 import { LoginComponent } from './components/forms/login/login.component';
 import { ClientRegisterComponent } from './components/forms/client-register/client-register.component';
-import { StoreRegisterComponent } from './components/forms/store-register/store-register.component';
-import { ProductRegisterComponent } from './components/forms/product-register/product-register.component';
-import { NewOfferComponent } from './components/forms/new-offer/new-offer.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { Page404Component } from './components/pages/page404/page404.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,11 +23,19 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { TerrenosComponent } from './components/pages/terrenos/terrenos.component';
 import { CasasComponent } from './components/pages/casas/casas.component';
-import { ListTerrenosComponent } from './components/list-terrenos/list-terrenos.component';
-import { ListCasasComponent } from './components/list-casas/list-casas.component';
 import { DetailCasasComponent } from './components/pages/detail-casas/detail-casas.component';
 import { DetailTerrenosComponent } from './components/pages/detail-terrenos/detail-terrenos.component';
 import { ModalterrenosComponent } from './components/modalterrenos/modalterrenos.component';
+import { ListInmueblesComponent } from './components/list-inmuebles/list-inmuebles.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FilterListPipe } from './pipes/filter-list.pipe';
+import { EdificiosComponent } from './components/pages/edificios/edificios.component';
+import { DepartamentosComponent } from './components/pages/departamentos/departamentos.component';
+import { ModaledificiosComponent } from './components/modaledificios/modaledificios.component';
+import { ModaldepartamentosComponent } from './components/modaldepartamentos/modaldepartamentos.component';
+import { DetailDepartamentosComponent } from './components/pages/detail-departamentos/detail-departamentos.component';
+import { DetailEdificiosComponent } from './components/pages/detail-edificios/detail-edificios.component';
+import { FilterListTPipe } from './pipes/filter-list-t.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,9 +46,6 @@ import { ModalterrenosComponent } from './components/modalterrenos/modalterrenos
     MainComponent,
     LoginComponent,
     ClientRegisterComponent,
-    StoreRegisterComponent,
-    ProductRegisterComponent,
-    NewOfferComponent,
     ProfileComponent,
     Page404Component,
     SendEmailComponent,
@@ -51,11 +53,19 @@ import { ModalterrenosComponent } from './components/modalterrenos/modalterrenos
     ContactComponent,
     TerrenosComponent,
     CasasComponent,
-    ListTerrenosComponent,
-    ListCasasComponent,
     DetailCasasComponent,
     DetailTerrenosComponent,
-    ModalterrenosComponent
+    ModalterrenosComponent,
+    ListInmueblesComponent,
+    FilterPipe,
+    FilterListPipe,
+    EdificiosComponent,
+    DepartamentosComponent,
+    ModaledificiosComponent,
+    ModaldepartamentosComponent,
+    DetailDepartamentosComponent,
+    DetailEdificiosComponent,
+    FilterListTPipe
   ],
   imports: [
     BrowserModule,

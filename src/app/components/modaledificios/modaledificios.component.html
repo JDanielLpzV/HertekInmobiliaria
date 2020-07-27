@@ -1,6 +1,6 @@
 <div
   class="modal fade"
-  id="modalTerreno"
+  id="modalEdificio"
   tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
@@ -11,9 +11,9 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
           {{
-            !this.dataApi.selectedTerreno.Id
-              ? "Nuevo Terreno"
-              : "Modificar Terreno"
+            !this.dataApi.selectedEdificio.Id
+              ? "Nuevo Edificio"
+              : "Modificar Edificio"
           }}
         </h5>
         <button
@@ -27,14 +27,14 @@
       </div>
       <div class="modal-body">
         <form
-          name="formTerreno"
-          #formTerreno="ngForm"
-          (ngSubmit)="onSaveTerreno(formTerreno)"
+          name="formEdificio"
+          #formEdificio="ngForm"
+          (ngSubmit)="onSaveEdificio(formEdificio)"
         >
           <input
             type="hidden"
             name="Id"
-            [(ngModel)]="this.dataApi.selectedTerreno.Id"
+            [(ngModel)]="this.dataApi.selectedEdificio.Id"
           />
           <!-- <input type="hidden" name="userUid" [value]="userUid" /> -->
           <input
@@ -51,16 +51,16 @@
                 type="text"
                 class="form-control"
                 name="codigo"
-                [(ngModel)]="this.dataApi.selectedTerreno.codigo"
+                [(ngModel)]="this.dataApi.selectedEdificio.codigo"
               />
             </div>
             <div class="form-group col-md-4">
-              <label for="metodo" class="col-form-label">Terreno en:</label>
+              <label for="metodo" class="col-form-label">Edificio en:</label>
               <div>
                 <select
                   class="custom-select form-control"
                   name="metodo"
-                  [(ngModel)]="this.dataApi.selectedTerreno.metodo"
+                  [(ngModel)]="this.dataApi.selectedEdificio.metodo"
                 >
                   <option selected value="Venta">Venta</option>
                   <option value="Renta">Renta</option>
@@ -68,14 +68,27 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="nombre" class="col-form-label">Nombre:</label>
-            <input
-              type="text"
-              class="form-control"
-              name="nombre"
-              [(ngModel)]="this.dataApi.selectedTerreno.nombre"
-            />
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="nombre" class="col-form-label">Nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="nombre"
+                [(ngModel)]="this.dataApi.selectedEdificio.nombre"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lugar" class="col-form-label"
+                >Municipio y estado:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="lugar"
+                [(ngModel)]="this.dataApi.selectedEdificio.lugar"
+              />
+            </div>
           </div>
           <div class="form-row">
             <div class="form-group">
@@ -86,7 +99,7 @@
                 type="text"
                 class="form-control"
                 name="area"
-                [(ngModel)]="this.dataApi.selectedTerreno.area"
+                [(ngModel)]="this.dataApi.selectedEdificio.area"
               />
             </div>
             <div class="form-group col-md-6">
@@ -97,72 +110,99 @@
                 type="text"
                 name="metros"
                 class="form-control"
-                [(ngModel)]="this.dataApi.selectedTerreno.metros"
+                [(ngModel)]="this.dataApi.selectedEdificio.metros"
               />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="lugar" class="col-form-label"
-                >Municipio y estado:</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                name="lugar"
-                [(ngModel)]="this.dataApi.selectedTerreno.lugar"
-              />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="domicilio" class="col-form-label">Domicilio:</label>
-              <input
-                type="text"
-                name="domicilio"
-                class="form-control"
-                [(ngModel)]="this.dataApi.selectedTerreno.domicilio"
-              />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-5">
-              <label for="agua" class="col-form-label">Servicio de agua:</label>
-              <div>
-                <select
-                  class="custom-select form-control"
-                  name="agua"
-                  [(ngModel)]="this.dataApi.selectedTerreno.agua"
-                >
-                  <option value="Si">Si</option>
-                  <option value="No">No</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group col-md-5">
-              <label for="luz" class="col-form-label">Servicio de luz:</label>
-              <div>
-                <select
-                  class="custom-select form-control"
-                  name="luz"
-                  [(ngModel)]="this.dataApi.selectedTerreno.luz"
-                >
-                  <option value="Si">Si</option>
-                  <option value="No">No</option>
-                </select>
-              </div>
             </div>
           </div>
 
+          <div class="form-group">
+            <label for="domicilio" class="col-form-label">Domicilio:</label>
+            <input
+              type="text"
+              name="domicilio"
+              class="form-control"
+              [(ngModel)]="this.dataApi.selectedEdificio.domicilio"
+            />
+          </div>
+          <!--]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]-->
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="cuartos">No. de cuartos:</label>
+              <input
+                type="number"
+                class="form-control"
+                min="0"
+                max="100"
+                name="cuartos"
+                [(ngModel)]="this.dataApi.selectedEdificio.cuartos"
+              />
+            </div>
+            <div class="form-group col-md-8">
+              <label for="cuartos_detalles">Información de los cuartos:</label>
+              <textarea
+                class="form-control"
+                name="cuartos_detalles"
+                [(ngModel)]="this.dataApi.selectedEdificio.cuartos_detalles"
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="banos">No. de baños:</label>
+              <input
+                type="number"
+                class="form-control"
+                min="0"
+                max="100"
+                name="banos"
+                [(ngModel)]="this.dataApi.selectedEdificio.banos"
+              />
+            </div>
+            <div class="form-group col-md-8">
+              <label for="banos_detalles">Información de los baños:</label>
+              <textarea
+                class="form-control"
+                name="banos_detalles"
+                [(ngModel)]="this.dataApi.selectedEdificio.banos_detalles"
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="vehiculos">No. espacios de vehiculos:</label>
+              <input
+                type="number"
+                class="form-control"
+                min="0"
+                max="100"
+                name="vehiculos"
+                [(ngModel)]="this.dataApi.selectedEdificio.vehiculos"
+              />
+            </div>
+            <div class="form-group col-md-8">
+              <label for="vehiculos_detalles"
+                >Información de los espacios para vehiculos:</label
+              >
+              <textarea
+                class="form-control"
+                name="vehiculos_detalles"
+                [(ngModel)]="this.dataApi.selectedEdificio.vehiculos_detalles"
+              ></textarea>
+            </div>
+          </div>
+          <!--]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]-->
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="precio">Precio</label>
               <input
                 type="number"
                 name="precio"
+                class="form-control"
                 min="0"
                 max="999999999"
-                class="form-control"
                 placeholder="Precio"
-                [(ngModel)]="this.dataApi.selectedTerreno.precio"
+                [(ngModel)]="this.dataApi.selectedEdificio.precio"
               />
             </div>
             <div class="form-group col-md-6">
@@ -174,7 +214,7 @@
                 min="1"
                 max="10"
                 placeholder="Plusvalía"
-                [(ngModel)]="this.dataApi.selectedTerreno.plusvalia"
+                [(ngModel)]="this.dataApi.selectedEdificio.plusvalia"
               />
             </div>
           </div>
@@ -186,7 +226,7 @@
                 name="imagen_presentacion"
                 class="form-control"
                 placeholder="(https://www.dominio.imagen.jpg)"
-                [(ngModel)]="this.dataApi.selectedTerreno.imagen_presentacion"
+                [(ngModel)]="this.dataApi.selectedEdificio.imagen_presentacion"
               />
             </div>
           </div>
@@ -195,7 +235,7 @@
             <textarea
               class="form-control"
               name="descripcion"
-              [(ngModel)]="this.dataApi.selectedTerreno.descripcion"
+              [(ngModel)]="this.dataApi.selectedEdificio.descripcion"
             ></textarea>
           </div>
           <div class="modal-footer">
@@ -208,7 +248,7 @@
               Cerrar
             </button>
             <button type="submit" class="btn btn-primary">
-              Guardar Terreno
+              Guardar Edificio
             </button>
           </div>
         </form>

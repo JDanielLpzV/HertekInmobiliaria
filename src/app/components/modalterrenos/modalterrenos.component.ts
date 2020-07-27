@@ -3,7 +3,7 @@ import { DataApiService } from '../../services/data-api.service';
 import { TerrenosInterface } from '../../models/terrenos';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { ListTerrenosComponent } from '../list-terrenos/list-terrenos.component';
+import { ListInmueblesComponent } from '../list-inmuebles/list-inmuebles.component';
 import { AuthService } from '../../services/auth.service'
 @Component({
   selector: 'app-modalterrenos',
@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service'
   providers: [AuthService]
 })
 export class ModalterrenosComponent implements OnInit {
-  public hijo: ListTerrenosComponent;
+  public hijo: ListInmueblesComponent;
   constructor(public dataApi: DataApiService, public authService: AuthService) { }
   public userCorreo: string = null;
   @ViewChild('btnClose') btnClose: ElementRef;
@@ -32,7 +32,6 @@ export class ModalterrenosComponent implements OnInit {
   onSaveTerreno(terrenoForm: NgForm): void {
     if (terrenoForm.value.Id == null) {
       // New 
-      // localitoForm.value.userUid = this.userUid;
       terrenoForm.value.correo_registro = this.userCorreo;
       this.dataApi.addTerrenos(terrenoForm.value);
     } else {

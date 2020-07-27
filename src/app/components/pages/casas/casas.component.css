@@ -5,6 +5,9 @@
 .badge-success {
   margin-left: 10px;
 }
+.badge-danger {
+  margin-left: 10px;
+}
 
 .eslogan {
   font-size: 2.5em;
@@ -15,10 +18,23 @@ h1 {
   color: #f2f2f2;
   font-weight: 600;
 }
-
+form {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #d0dff2;
+  padding-left: 10%;
+}
+h5 {
+  display: inline;
+}
 .jumbotron {
   background-color: #024059;
   color: #fff;
   padding: 100px 25px;
   font-family: Montserrat, sans-serif;
+}
+
+.card-img-overlay {
+  height: 50%;
 }

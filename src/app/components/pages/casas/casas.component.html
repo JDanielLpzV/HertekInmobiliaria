@@ -1,14 +1,145 @@
 <div class="jumbotron text-center">
-  <h1>Casas en venta</h1>
+  <h1>Viviendas</h1>
   <p class="eslogan">
     Lugar donde encontrarás opciones que se convertiran en tu proximo hogar.
   </p>
 </div>
+<h4 class="text-center">Filtrar Viviendas</h4>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputState" class="col-form-label">Venta o renta</label>
+      <select
+        id="inputState"
+        class="form-control"
+        name="metodo"
+        [(ngModel)]="metodo"
+      >
+        <option value="venta">Venta</option>
+        <option value="renta">Renta</option>
+        <option value="">Todas</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="lugar" class="col-form-label">Municipio y estado:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="lugar"
+        [(ngModel)]="lugar"
+      />
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-3 pt-0">Precios:</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="precio"
+              [(ngModel)]="precio"
+              id="gridRadios1"
+              value="100000"
+              checked
+            />
+            <label class="form-check-label" for="gridRadios1">
+              Hasta $100,000
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="precio"
+              [(ngModel)]="precio"
+              id="gridRadios2"
+              value="500000"
+            />
+            <label class="form-check-label" for="gridRadios2">
+              Hasta $500,000
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="precio"
+              [(ngModel)]="precio"
+              id="gridRadios3"
+              value="1000000"
+            />
+            <label class="form-check-label" for="gridRadios3">
+              Hasta $1,000,000
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="precio"
+              [(ngModel)]="precio"
+              id="gridRadios2"
+              value="100000000"
+            />
+            <label class="form-check-label" for="gridRadios2">
+              Hasta $100,000,000
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="cuartos" class="col-form-label">Habitaciones minimos:</label>
+      <input
+        type="number"
+        class="form-control"
+        min="0"
+        max="100"
+        name="cuartos"
+        [(ngModel)]="cuartos"
+      />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="banos" class="col-form-label">Baños mínimos:</label>
+      <input
+        type="number"
+        class="form-control"
+        name="banos"
+        min="0"
+        max="100"
+        [(ngModel)]="banos"
+      />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="autos" class="col-form-label"
+        >Espacio para vehículos mínimos:</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        name="autos"
+        min="0"
+        max="100"
+        [(ngModel)]="autos"
+      />
+    </div>
+  </div>
+</form>
 
 <section id="casas" class="mt-4">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let casa of casas">
+      <div
+        class="col-xs-12 col-sm-6 col-md-4"
+        *ngFor="
+          let casa of casas
+            | filterList: metodo:lugar:cuartos:banos:autos:precio
+        "
+      >
         <div class="card_book">
           <div class="card">
             <img
@@ -17,35 +148,59 @@
               alt="{{ casa.nombre }}"
             />
             <div class="card-img-overlay">
-              <p class="badge badge-warning">
+              <p class="badge badge-light">
                 {{ casa.codigo }}
               </p>
+              <p class="badge badge-info">
+                {{ casa.lugar }}
+              </p>
+              <p class="badge badge-danger">
+                {{ casa.metodo }}
+              </p>
             </div>
+            <p class="badge badge-warning">
+              Plusvalia: <strong>{{ casa.plusvalia }}</strong>
+            </p>
             <div class="card-body text-center">
               <h4 class="card-header">
                 {{ casa.nombre }}
               </h4>
+              <h6>Terreno de {{ casa.area }} m<sup>2</sup></h6>
+              <h6>{{ casa.metros }} m<sup>2</sup> construidos</h6>
               <p class="card-text">
                 {{ casa.descripcion.substring(0, 60) }}...
               </p>
-              <div class="container-precio-idioma">
+              <!-- <div class="container-precio-idioma">
                 <p class="badge badge-info">
                   {{ casa.lugar }}
                 </p>
-              </div>
+              </div> -->
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  <p class="badge badge-success">{{ casa.cuartos }} Cuartos</p>
-                  <p class="badge badge-success">{{ casa.banos }} Baños</p>
-                  <p class="badge badge-success">{{ casa.autos }} Espacios</p>
+                  <h5 class="bandas">
+                    <span class="badge badge-success">
+                      {{ casa.cuartos }} Cuartos</span
+                    >
+                  </h5>
+                  <h5 class="bandas">
+                    <span class="inf badge badge-success"
+                      >{{ casa.banos }} Baños</span
+                    >
+                  </h5>
+                  <h5 class="bandas">
+                    <span class="inf badge badge-success">
+                      {{ casa.autos }} Vehiculos
+                    </span>
+                  </h5>
                 </li>
               </ul>
+              <h4 class="card-text">{{ casa.precio | currency }}</h4>
               <a
                 href=""
                 class="btn btn-block btn-warning"
                 target="_self"
-                routerLink="/casa/{{ casa.Id }}"
-                >Detalles</a
+                routerLink="/vivienda/{{ casa.Id }}"
+                ><strong>Detalles</strong></a
               >
             </div>
           </div>
@@ -54,3 +209,16 @@
     </div>
   </div>
 </section>
+<div class="card text-center">
+  <div class="card-header">
+    Hertek Inmobiliaria
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">¿No encontraste lo que buscabas?</h5>
+    <p class="card-text">
+      Tenemos mas opciones para ti, solo tienes que agendar una cita y nosotros
+      hacemos el resto.
+    </p>
+    <a href="#" class="btn btn-dark" routerLink="/contacto">Agendar cita</a>
+  </div>
+</div>

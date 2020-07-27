@@ -1,18 +1,18 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
-import { CasasInterface } from '../../models/casas';
+import { DepartamentosInterface } from '../../models/departamentos';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ListInmueblesComponent } from '../list-inmuebles/list-inmuebles.component';
 import { AuthService } from '../../services/auth.service'
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css'],
+  selector: 'app-modaldepartamentos',
+  templateUrl: './modaldepartamentos.component.html',
+  styleUrls: ['./modaldepartamentos.component.css'],
   providers: [AuthService]
 })
-export class ModalComponent implements OnInit {
+export class ModaldepartamentosComponent implements OnInit {
   public hijo: ListInmueblesComponent;
   constructor(public dataApi: DataApiService, public authService: AuthService) { }
   public userCorreo: string = null;
@@ -30,17 +30,21 @@ export class ModalComponent implements OnInit {
       }
     })
   }
-  onSaveCasa(casaForm: NgForm): void {
-    if (casaForm.value.Id == null) {
-      // New 
-      // localitoForm.value.userUid = this.userUid;
-      casaForm.value.correo_registro = this.userCorreo;
-      this.dataApi.addCasas(casaForm.value);
+  onSaveDepartamento(departamentoForm: NgForm): void {
+    console.log("llegue");
+
+    if (departamentoForm.value.Id == null) {
+      departamentoForm.value.correo_registro = this.userCorreo;
+      this.dataApi.addDepartamentos(departamentoForm.value);
+      console.log("pase2");
+
     } else {
       // Update
-      this.dataApi.updateCasas(casaForm.value);
+      this.dataApi.updateDepartamentos(departamentoForm.value);
     }
-    casaForm.resetForm();
+    departamentoForm.resetForm();
     this.btnClose.nativeElement.click();
   }
+
+
 }

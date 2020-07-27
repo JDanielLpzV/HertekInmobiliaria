@@ -1,12 +1,12 @@
 .badge-info {
   margin-left: 10px;
 }
-.badge-danger {
+
+.badge-success {
   margin-left: 10px;
 }
-.eslogan {
-  font-size: 2.5em;
-  color: #f2f2f2;
+.badge-danger {
+  margin-left: 10px;
 }
 form {
   width: 90%;
@@ -15,10 +15,17 @@ form {
   background-color: #d0dff2;
   padding-left: 10%;
 }
+.eslogan {
+  font-size: 2.5em;
+  color: #f2f2f2;
+}
 h1 {
-  font-size: 8.78em;
+  font-size: 10em;
   color: #f2f2f2;
   font-weight: 600;
+}
+h5 {
+  display: inline;
 }
 .jumbotron {
   background-color: #024059;
@@ -26,6 +33,7 @@ h1 {
   padding: 100px 25px;
   font-family: Montserrat, sans-serif;
 }
+
 .card-img-overlay {
   height: 50%;
 }

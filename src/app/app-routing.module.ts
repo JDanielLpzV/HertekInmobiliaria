@@ -6,14 +6,16 @@ import { ClientRegisterComponent } from './components/forms/client-register/clie
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { SendEmailComponent } from './components/send-email/send-email.component';
 import { ForgotPasswordComponent } from './components/forms/forgot-password/forgot-password.component';
-import { StoreRegisterComponent } from './components/forms/store-register/store-register.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { TerrenosComponent } from './components/pages/terrenos/terrenos.component';
 import { CasasComponent } from './components/pages/casas/casas.component';
-import { ListCasasComponent } from './components/list-casas/list-casas.component';
-import { ListTerrenosComponent } from './components/list-terrenos/list-terrenos.component';
 import { DetailTerrenosComponent } from './components/pages/detail-terrenos/detail-terrenos.component';
 import { DetailCasasComponent } from './components/pages/detail-casas/detail-casas.component';
+import { ListInmueblesComponent } from './components/list-inmuebles/list-inmuebles.component';
+import { DepartamentosComponent } from './components/pages/departamentos/departamentos.component';
+import { EdificiosComponent } from './components/pages/edificios/edificios.component';
+import { DetailDepartamentosComponent } from './components/pages/detail-departamentos/detail-departamentos.component';
+import { DetailEdificiosComponent } from './components/pages/detail-edificios/detail-edificios.component';
 const routes: Routes = [
   {
     path: '',
@@ -36,36 +38,40 @@ const routes: Routes = [
     component: TerrenosComponent
   },
   {
-    path: 'casas',
+    path: 'viviendas',
     component: CasasComponent
   },
-  // {
-  //   path: 'confirmacion',
-  //   component: SendEmailComponent
-  // },
+  {
+    path: 'departamentos',
+    component: DepartamentosComponent
+  },
+  {
+    path: 'edificios',
+    component: EdificiosComponent
+  },
   {
     path: 'recuperar-contrasena',
     component: ForgotPasswordComponent
   },
   {
-    path: 'registrar-localito',
-    component: StoreRegisterComponent
-  },
-  {
-    path: 'casa/:idcasa',
+    path: 'vivienda/:idCasa',
     component: DetailCasasComponent
   },
   {
-    path: 'admin/casas',
-    component: ListCasasComponent
-  },
-  {
-    path: 'admin/terrenos',
-    component: ListTerrenosComponent
-  },
-  {
-    path: 'terrenos/:idTerreno',
+    path: 'terreno/:idTerreno',
     component: DetailTerrenosComponent
+  },
+  {
+    path: 'departamento/:idDepartamento',
+    component: DetailDepartamentosComponent
+  },
+  {
+    path: 'edificio/:idEdificio',
+    component: DetailEdificiosComponent
+  },
+  {
+    path: 'admin/inmuebles',
+    component: ListInmueblesComponent
   },
   {
     path: 'contacto',

@@ -9,10 +9,15 @@
               src="{{ casa.imagen_presentacion }}"
               alt="{{ casa.nombre }}"
             />
+            <p class="badge badge-warning">
+              <strong>Plusvalia: </strong>{{ casa.plusvalia }}
+            </p>
             <div class="card-body text-center">
               <h4 class="card-title">
                 {{ casa.nombre }}
               </h4>
+              <h5>Terreno de {{ casa.area }} m<sup>2</sup></h5>
+              <h5>{{ casa.metros }} m<sup>2</sup> construidos</h5>
               <p class="card-text">
                 {{ casa.descripcion }}
                 <br />

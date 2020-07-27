@@ -12,7 +12,7 @@ export class DetailCasasComponent implements OnInit {
   constructor(public dataApi: DataApiService, public route: ActivatedRoute) { }
   public casa: CasasInterface = {};
   ngOnInit() {
-    const idCasa = this.route.snapshot.params['idcasa'];
+    const idCasa = this.route.snapshot.params['idCasa'];
     this.getDetalles(idCasa)
   }
   getDetalles(idCasa: string): void {

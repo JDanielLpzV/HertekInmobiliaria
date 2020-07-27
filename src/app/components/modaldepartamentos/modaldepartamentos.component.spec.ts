@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StoreRegisterComponent } from './store-register.component';
+import { ModaldepartamentosComponent } from './modaldepartamentos.component';
 
-describe('StoreRegisterComponent', () => {
-  let component: StoreRegisterComponent;
-  let fixture: ComponentFixture<StoreRegisterComponent>;
+describe('ModaldepartamentosComponent', () => {
+  let component: ModaldepartamentosComponent;
+  let fixture: ComponentFixture<ModaldepartamentosComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StoreRegisterComponent ]
+      declarations: [ ModaldepartamentosComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StoreRegisterComponent);
+    fixture = TestBed.createComponent(ModaldepartamentosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

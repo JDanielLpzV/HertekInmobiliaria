@@ -3,13 +3,19 @@ export interface CasasInterface {
     descripcion?: string;
     cuartos?: string;
     cuartos_detalles?: string;
+    correo_registro?: string;
     banos?: string;
     banos_detalles?: string;
-    autos?: string;
-    autos_detalles?: string;
+    vehiculos?: string;
+    vehiculos_detalles?: string;
     imagen_presentacion?: string;
     nombre?: string;
     precio?: string;
-    tipo?: string;
+    domicilio?: string;
+    // tipo?: string;
+    area?: string;
+    metros?: string;
+    plusvalia?: string;
+    metodo?: string;
     Id?: any;
 }

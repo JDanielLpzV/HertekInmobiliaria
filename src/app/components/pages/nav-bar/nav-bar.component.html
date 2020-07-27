@@ -22,6 +22,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <!-- <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#" [routerLink]="['inmuebles']">Inmuebles</a>
+      </li> -->
       <li class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle"
@@ -32,14 +35,21 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Venta de
+          Inmuebles
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#" [routerLink]="['viviendas']"
+            >Viviendas</a
+          >
           <a class="dropdown-item" href="#" [routerLink]="['terrenos']"
             >Terrenos</a
           >
-          <a class="dropdown-item" href="#" [routerLink]="['casas']">Casas</a>
-          <!-- <a class="dropdown-item" href="#">Planos</a> -->
+          <a class="dropdown-item" href="#" [routerLink]="['departamentos']"
+            >Departamentos</a
+          >
+          <a class="dropdown-item" href="#" [routerLink]="['edificios']"
+            >Edificios</a
+          >
         </div>
       </li>
       <li class="nav-item" routerLinkActive="active">
@@ -64,11 +74,8 @@
             Admin
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" [routerLink]="['admin/casas']" href="#"
-              >Casas</a
-            >
-            <a class="dropdown-item" [routerLink]="['admin/terrenos']" href="#"
-              >Terrenos</a
+            <a class="dropdown-item" [routerLink]="['admin/inmuebles']" href="#"
+              >Inmuebles</a
             >
           </div>
         </li>
