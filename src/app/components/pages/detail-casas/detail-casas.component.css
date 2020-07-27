@@ -1,3 +1,63 @@
-.badge-info {
+.imagen {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+  width: 90%;
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.imagen img {
+  width: 90%;
+  height: 500px;
+  position: absolute;
+}
+.row {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.imagen h2 {
+  height: 200px;
+  position: relative;
+  width: 90%;
+  background-color: #d0dff280;
+  font-size: 3.5rem;
+  font-weight: 700;
+  padding-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.imagen h4 {
+  position: relative;
+  width: 90%;
+  background-color: #1e403c;
+  color: bisque;
+  font-size: 2rem;
+  font-weight: 500;
+  padding-top: 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.elemento {
+}
+label {
+  font-weight: 500;
+}
+.inf {
   margin-left: 10px;
+  font-size: 0.9rem;
+  font-weight: 550;
+}
+.titulo {
+  font-size: 1.2rem;
+}
+
+.precio {
+  font-weight: 650;
+  font-size: 1.5rem;
+  background-color: #34bfa6;
 }

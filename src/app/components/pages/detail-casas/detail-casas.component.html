@@ -1,41 +1,80 @@
-<section id="casa" class="mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
-        <div class="card_book">
-          <div class="card">
-            <img
-              class="card-img-top"
-              src="{{ casa.imagen_presentacion }}"
-              alt="{{ casa.nombre }}"
-            />
-            <p class="badge badge-warning">
-              <strong>Plusvalia: </strong>{{ casa.plusvalia }}
-            </p>
-            <div class="card-body text-center">
-              <h4 class="card-title">
-                {{ casa.nombre }}
-              </h4>
-              <h5>Terreno de {{ casa.area }} m<sup>2</sup></h5>
-              <h5>{{ casa.metros }} m<sup>2</sup> construidos</h5>
-              <p class="card-text">
-                {{ casa.descripcion }}
-                <br />
-                {{ casa.domicilio }}
-              </p>
-              <div class="container-precio-idioma">
-                <p class="badge badge-dark">
-                  {{ casa.codigo }}
-                </p>
-                <p class="badge badge-info">
-                  {{ casa.lugar }}
-                </p>
-              </div>
-              <div></div>
-            </div>
-          </div>
+<div>
+  <div class="imagen">
+    <img src="{{ casa.imagen_presentacion }}" alt="{{ casa.nombre }}" />
+    <h2>{{ casa.nombre }}</h2>
+    <h4>
+      Terreno de {{ casa.area }} m<sup>2</sup> y {{ casa.metros }}m<sup>2</sup>
+      construidos
+    </h4>
+  </div>
+</div>
+<div class="card-header text-center titulo">
+  <strong>Plusvalía:</strong>
+  <span class="badge badge-warning inf">{{ casa.plusvalia }}</span>
+</div>
+<div class="row">
+  <div class="col sm 6">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          Detalles generales
+        </h5>
+        <div class="elemento">
+          <label for="cuartos">Habitaciones:</label>
+          <span name="cuartos" class="inf badge badge-success">{{
+            casa.cuartos
+          }}</span>
+          <p>{{ casa.cuartos_detalles }}</p>
+        </div>
+        <div class="elemento">
+          <label for="banos">Baños:</label>
+          <span name="banos" class="inf badge badge-success">{{
+            casa.banos
+          }}</span>
+          <p>{{ casa.banos_detalles }}</p>
+        </div>
+        <div class="elemento">
+          <label for="autos">Espacios para vehiculos:</label>
+          <span name="autos" class="inf badge badge-success">{{
+            casa.autos
+          }}</span>
+          <p>{{ casa.autos_detalles }}</p>
         </div>
       </div>
     </div>
   </div>
-</section>
+  <div class="col sm 5">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          Información
+        </h5>
+        <div class="elemento2">
+          <label for="metodo">Vivienda en:</label>
+          <span class="inf badge badge-info" name="metodo">{{
+            casa.metodo
+          }}</span>
+        </div>
+        <div class="elemento2">
+          <label for="lugar">Ubicada en:</label>
+          <p name="lugar">{{ casa.domicilio }}, {{ casa.lugar }}</p>
+        </div>
+        <div class="elemento2">
+          <label for="precio">Precio de :</label>
+          <p name="precio" class="precio">{{ casa.precio | currency }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card text-center">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title">Descripción</h5>
+    <p class="card-text">
+      {{ casa.descripcion }}
+    </p>
+    <a href="#" class="btn btn-block btn-warning">Contactar</a>
+  </div>
+  <div class="card-footer text-muted"></div>
+</div>

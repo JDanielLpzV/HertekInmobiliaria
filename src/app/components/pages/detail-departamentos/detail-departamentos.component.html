@@ -1,1 +1,88 @@
-<p>detail-departamentos works!</p>
+<div>
+  <div class="imagen">
+    <img
+      src="{{ departamento.imagen_presentacion }}"
+      alt="{{ departamento.nombre }}"
+    />
+    <h2>{{ departamento.nombre }}</h2>
+    <h4>
+      Terreno de {{ departamento.area }} m<sup>2</sup> y
+      {{ departamento.metros }}m<sup>2</sup>
+      construidos
+    </h4>
+  </div>
+</div>
+<div class="card-header text-center titulo">
+  <strong>Plusvalía:</strong>
+  <span class="badge badge-warning inf">{{ departamento.plusvalia }}</span>
+</div>
+<div class="row">
+  <div class="col sm 6">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          Detalles generales
+        </h5>
+        <div class="elemento">
+          <label for="cuartos">Habitaciones:</label>
+          <span name="cuartos" class="inf badge badge-success">{{
+            departamento.cuartos
+          }}</span>
+          <p>{{ departamento.cuartos_detalles }}</p>
+        </div>
+        <div class="elemento">
+          <label for="banos">Baños:</label>
+          <span name="banos" class="inf badge badge-success">{{
+            departamento.banos
+          }}</span>
+          <p>{{ departamento.banos_detalles }}</p>
+        </div>
+        <div class="elemento">
+          <label for="autos">Espacios para vehiculos:</label>
+          <span name="autos" class="inf badge badge-success">{{
+            departamento.autos
+          }}</span>
+          <p>{{ departamento.autos_detalles }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col sm 5">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          Información
+        </h5>
+        <div class="elemento2">
+          <label for="metodo">Vivienda en:</label>
+          <span class="inf badge badge-info" name="metodo">{{
+            departamento.metodo
+          }}</span>
+        </div>
+        <div class="elemento2">
+          <label for="lugar">Ubicada en:</label>
+          <p name="lugar">
+            {{ departamento.domicilio }}, {{ departamento.lugar }}
+          </p>
+        </div>
+        <div class="elemento2">
+          <label for="precio">Precio de :</label>
+          <p name="precio" class="precio">
+            {{ departamento.precio | currency }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card text-center">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title">Descripción</h5>
+    <p class="card-text">
+      {{ departamento.descripcion }}
+    </p>
+    <a href="#" class="btn btn-block btn-warning">Contactar</a>
+  </div>
+  <div class="card-footer text-muted"></div>
+</div>

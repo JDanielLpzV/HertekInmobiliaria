@@ -13,10 +13,11 @@ export class FilterListTPipe implements PipeTransform {
       if (
         post.metodo.toLowerCase().indexOf(args[0].toLowerCase()) > -1
         && post.lugar.toLowerCase().indexOf(args[1].toLowerCase()) > -1
-        && post.precio <= args[2]
-        && post.luz.toLowerCase().indexOf(args[3].toLowerCase()) > -1
-        && post.agua.toLowerCase().indexOf(args[4].toLowerCase()) > -1
+        && post.luz.toLowerCase().indexOf(args[2].toLowerCase()) > -1
+        && post.agua.toLowerCase().indexOf(args[3].toLowerCase()) > -1
+        && post.precio <= args[4]
       ) {
+
         resultPost.push(post);
       };
     };
