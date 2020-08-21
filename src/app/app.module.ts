@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { DetailTerrenosComponent } from './components/pages/detail-terrenos/deta
 import { ModalterrenosComponent } from './components/modalterrenos/modalterrenos.component';
 import { ListInmueblesComponent } from './components/list-inmuebles/list-inmuebles.component';
 import { FilterPipe } from './pipes/filter.pipe';
+
 import { FilterListPipe } from './pipes/filter-list.pipe';
 import { EdificiosComponent } from './components/pages/edificios/edificios.component';
 import { DepartamentosComponent } from './components/pages/departamentos/departamentos.component';
@@ -73,7 +75,8 @@ import { FilterListTPipe } from './pipes/filter-list-t.pipe';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

@@ -5,7 +5,7 @@ import { CasasInterface } from '../../models/casas';
 import { EdificiosInterface } from '../../models/edificios';
 import { DepartamentosInterface } from '../../models/departamentos';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../../services/auth.service'
+import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-list-inmuebles',

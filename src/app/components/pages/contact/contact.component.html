@@ -4,3 +4,89 @@
     Por que estamos para ayudarte, comunicate con nosotros.
   </p>
 </div>
+<div class="formulario">
+  <h4 class="text-center">
+    ¿Buscas algún inmueble en especifico o deseas ponerte en contacto con
+    nosotros?, Llena el siguiente formulario y nosotros nos encargaremos de
+    contactarte.
+  </h4>
+
+  <div class="card-header text-center titulo">
+    <strong>Formulario de contacto :</strong>
+  </div>
+  <form [formGroup]="contacto">
+    <div class="form-group">
+      <label for="correo">
+        Tu correo electronico:
+      </label>
+      <input
+        type="email"
+        class="form-control"
+        name="_replyto"
+        formControlName="_replyto"
+        id="correo"
+      />
+    </div>
+    <div class="form-group">
+      <label>
+        Número telefonico (Opcional):
+      </label>
+      <input
+        type="tel"
+        class="form-control"
+        name="phone"
+        formControlName="phone"
+      />
+    </div>
+    <div class="form-group">
+      <label for="mensaje">
+        Mensaje:
+      </label>
+      <textarea
+        name="message"
+        id="mensaje"
+        class="form-control"
+        formControlName="message"
+      ></textarea>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-lg btn-block btn-primary"
+      (click)="httpPost()"
+    >
+      Send
+    </button>
+  </form>
+</div>
+
+<div class="detalles">
+  <div class="card-header text-center titulo">
+    <strong>Información :</strong>
+  </div>
+  <div class="row">
+    <div class="col sm 4">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="elemento">
+            <a for="facebook" href="www.facebook.com">Facebook</a>
+          </div>
+          <div class="elemento">
+            <a for="instagram" href="www.instagram.com">Instagram</a>
+          </div>
+          <div class="elemento">
+            <label for="correo">Correo:</label>
+            <span name="correo" class="inf badge badge-success">
+              prueba@gmail.com</span
+            >
+          </div>
+          <div class="elemento">
+            <label for="whatsapp" href="www.facebook.com">Whatsapp</label>
+            <span name="whatsapp" class="inf badge badge-success">
+              311914827
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

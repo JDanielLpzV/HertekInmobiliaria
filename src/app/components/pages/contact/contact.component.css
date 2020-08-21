@@ -13,3 +13,28 @@ h1 {
   padding: 100px 25px;
   font-family: Montserrat, sans-serif;
 }
+.elemento {
+}
+label {
+  font-weight: 500;
+}
+.inf {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  font-weight: 550;
+}
+.titulo {
+  font-size: 1.2rem;
+}
+.detalles {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+}
+.formulario {
+  width: 49%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+}

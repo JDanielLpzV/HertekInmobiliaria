@@ -1,35 +1,76 @@
-<section id="terreno" class="mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
-        <div class="card_book">
-          <div class="card">
-            <img
-              class="card-img-top"
-              src="{{ terreno.imagen_presentacion }}"
-              alt="{{ terreno.nombre }}"
-            />
-            <div class="card-body text-center">
-              <h4 class="card-title">
-                {{ terreno.nombre }}
-              </h4>
-              <p class="card-text">
-                {{ terreno.descripcion }}
-                <br />
-                {{ terreno.domicilio }}
-              </p>
-              <div class="container-precio-idioma">
-                <p class="badge badge-dark">
-                  {{ terreno.codigo }}
-                </p>
-                <p class="badge badge-info">
-                  {{ terreno.lugar }}
-                </p>
-              </div>
-            </div>
-          </div>
+<div>
+  <div class="imagen">
+    <img src="{{ terreno.imagen_presentacion }}" alt="{{ terreno.nombre }}" />
+    <h2>{{ terreno.nombre }}</h2>
+    <h4>
+      Terreno de {{ terreno.area }} m<sup>2</sup> y {{ terreno.metros }}m<sup
+        >2</sup
+      >
+      construidos
+    </h4>
+  </div>
+</div>
+<div class="card-header text-center titulo">
+  <strong>Servicios:</strong>
+</div>
+<div class="row">
+  <div class="col sm 6">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          Detalles generales
+        </h5>
+        <div class="elemento">
+          <label for="agua">Agua:</label>
+          <span name="agua" class="inf badge badge-success">{{
+            terreno.agua
+          }}</span>
+        </div>
+        <div class="elemento">
+          <label for="luz">Luz:</label>
+          <span name="luz" class="inf badge badge-success">{{
+            terreno.luz
+          }}</span>
         </div>
       </div>
     </div>
   </div>
-</section>
+  <div class="col sm 5">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          Información
+        </h5>
+        <div class="elemento2">
+          <label for="metodo">Vivienda en:</label>
+          <span class="inf badge badge-info" name="metodo">{{
+            terreno.metodo
+          }}</span>
+        </div>
+        <div class="elemento2">
+          <label for="lugar">Ubicada en:</label>
+          <p name="lugar">{{ terreno.domicilio }}, {{ terreno.lugar }}</p>
+        </div>
+        <div class="elemento2">
+          <label for="precio">Precio de :</label>
+          <p name="precio" class="precio">
+            {{ terreno.precio | currency }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card text-center">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title">Descripción</h5>
+    <p class="card-text">
+      {{ terreno.descripcion }}
+    </p>
+    <button (click)="httpPost()" class="btn btn-block btn-warning">
+      Contactar
+    </button>
+  </div>
+  <div class="card-footer text-muted"></div>
+</div>
